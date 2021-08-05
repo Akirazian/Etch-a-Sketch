@@ -1,0 +1,22 @@
+ /* body {
+
+} */
+
+#container {
+  display: flex;
+  flex-direction: column;  
+}
+
+#column {
+ display: flex;
+}
+
+#row {
+  height: 16px;
+  width: 16px;
+  outline: 1px solid black;
+}
+
+.color {
+  background-color: cadetblue;
+}
