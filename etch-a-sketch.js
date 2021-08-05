@@ -1,20 +1,36 @@
 
-for (let i = 0; i < 16; i++) {
-  let column = document.createElement("div");
-  column.id = "column";
+createBox(16);
 
-  for (let i = 0; i < 16; i++) {
-    let row = document.createElement("div");
-    row.id = "row";
-    
-    row.addEventListener("mouseenter", () => {
-      row.classList.add("color");
-    });
+const changeButton = document.getElementById("change-button");
+changeButton.addEventListener("click", changeSize);
 
-    column.appendChild(row);
-  }
+function createBox(size) {
+  if (size > 100) return alert("Over 100 is too big! Try again.");
 
   let container = document.getElementById("container");
-  container.appendChild(column);
+  container.innerHTML = ""
+
+  for (let i = 0; i < size; i++) {
+    let column = document.createElement("div");
+    column.id = "column";
+  
+    for (let i = 0; i < size; i++) {
+      let row = document.createElement("div");
+      row.id = "row";
+      
+      row.addEventListener("mouseenter", () => {
+        row.classList.add("color");
+      });
+  
+      column.appendChild(row);
+    }
+  
+    let container = document.getElementById("container");
+    container.appendChild(column);
+  }
 }
 
+function changeSize() {
+  let newSize = prompt("Number of squares per side?")
+  createBox(newSize);
+} 

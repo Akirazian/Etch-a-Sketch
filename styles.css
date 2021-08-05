@@ -1,22 +1,24 @@
  /* body {
-
+  text-align: center;
 } */
 
 #container {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
+  height: 600px;
+  width: 600px; 
 }
 
 #column {
  display: flex;
+ flex: 1;
 }
 
 #row {
-  height: 16px;
-  width: 16px;
+  flex: 1;
   outline: 1px solid black;
 }
 
 .color {
-  background-color: cadetblue;
+  background-color: rgb(42, 100, 226);
 }
