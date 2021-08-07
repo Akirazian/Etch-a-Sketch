@@ -6,10 +6,12 @@
   display: flex;
   flex-direction: column;
   height: 600px;
-  width: 600px; 
+  width: 600px;
+  outline: 1px solid black;
+
 }
 
-#column {
+.column {
  display: flex;
  flex: 1;
 }
@@ -17,5 +19,4 @@
 .row {
   flex: 1;
   background-color: white;
-  outline: 1px solid black;
 }

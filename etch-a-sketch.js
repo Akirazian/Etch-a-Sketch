@@ -1,8 +1,12 @@
 
 createBox(16);
 
-const changeButton = document.getElementById("change-button");
-changeButton.addEventListener("click", changeSize);
+const sizeValue = document.getElementById("size-value");
+const slider = document.getElementById("slider");
+slider.addEventListener("mouseup", () => createBox(slider.value));
+slider.addEventListener("input", () => {
+  sizeValue.innerText = `${slider.value} x ${slider.value}`;
+});
 
 function getRandomColor() {
   let randomNumber = Math.floor(Math.random()*16777215);
@@ -10,16 +14,13 @@ function getRandomColor() {
 }
 
 function createBox(size) {
-  if (size > 64) return alert("Over 64 is too big! Try again.");
-
   let container = document.getElementById("container");
   container.innerHTML = ""
 
-
   for (let i = 0; i < size; i++) {
     let column = document.createElement("div");
-    column.id = "column";
-  
+    column.classList.add("column");
+
     for (let i = 0; i < size; i++) {
       let row = document.createElement("div");
       row.classList.add("row");
@@ -28,12 +29,6 @@ function createBox(size) {
       });
       column.appendChild(row);
     }
-    let container = document.getElementById("container");
     container.appendChild(column);
   }
 }
-
-function changeSize() {
-  let newSize = prompt("Number of squares per side?")
-  createBox(newSize);
-} 
