@@ -20,5 +20,8 @@
   flex: 1;
   background-color: white;
   outline: 1px solid black;
+}
 
+.gridOff {
+  outline: none !important;
 }

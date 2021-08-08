@@ -6,6 +6,7 @@ const rainbowButton = document.getElementById("rainbow-button");
 const eraserButton = document.getElementById("eraser-button");
 const clearButton = document.getElementById("clear-button");
 const colorPicker = document.getElementById("color-picker");
+const toggleGridButton = document.getElementById("toggle-grid");
 
 let color = "black";
 
@@ -23,13 +24,12 @@ function createBox(size) {
     for (let i = 0; i < size; i++) {
       let row = document.createElement("div");
       row.classList.add("row");
-      row.addEventListener("mouseenter", (event) => {
-        console.log(event);
-        if (drawMode == false) return;
+      if (gridMode === false) row.classList.add("gridOff");
+      row.addEventListener("mouseenter", () => {
+        if (drawMode === false) return;
         if (color === "rainbow") {
           row.style.backgroundColor = "#" + getRandomColor();
-        } else { row.style.backgroundColor = color;
-        }
+        } else row.style.backgroundColor = color;
       });
       column.appendChild(row);
     }
@@ -38,7 +38,7 @@ function createBox(size) {
   }
 }
 
-let drawMode = true;
+let drawMode = true; //Toggle pen
 container.addEventListener("click", () =>{
   if (drawMode === false) { 
     drawMode = true;
@@ -46,6 +46,18 @@ container.addEventListener("click", () =>{
     drawMode = false;
     }
 });
+
+let gridMode = true; //Toggle grid
+function toggleGrid() {
+  let grid = document.querySelectorAll(".row");
+  if (gridMode === true) {
+    grid.forEach((row) => row.classList.add("gridOff"));
+  } else {
+    grid.forEach((row) => row.classList.remove("gridOff"));
+  }
+  if (gridMode === false) gridMode = true;
+  else gridMode = false;
+}
 
 //Event listeners
 slider.addEventListener("change", () => createBox(slider.value));
@@ -56,6 +68,6 @@ eraserButton.addEventListener("click", () => color = "white");
 clearButton.addEventListener("click", () => createBox(slider.value));
 colorPicker.addEventListener("change", () => color = colorPicker.value);
 colorPicker.addEventListener("mouseup", () => color = colorPicker.value); //just in case the user switches back to their chosen color, but doesn't change it!
-
+toggleGridButton.addEventListener("click", toggleGrid);
 
 createBox(16); // start with default size
