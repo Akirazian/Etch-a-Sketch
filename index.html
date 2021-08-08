@@ -5,13 +5,20 @@
   </head>
   <body>
     <h1>Etch A Sketch</h1>
-    <div id="container">
-    </div>
+    <h4>Click to stop drawing</h3>
+    <div id="container"></div>
     <br>
-    <div class="slidecontainer">
-      <span id="size-value">16 x 16</span>
-      <br>
-      <input type="range" min="1" max="64" value="16" class="slider" id="slider">
+    <div id="options">
+      <div class="slidecontainer">
+        <span id="size-value">16 x 16</span>
+        <br>
+        <input type="range" min="1" max="64" value="16" class="slider" id="slider">
+      </div>
+      <input type="color" value="#ff0000" id="color-picker">
+      <button id="black-button">Black</button>
+      <button id="rainbow-button">Rainbow</button>
+      <button id="eraser-button">Eraser</button>
+      <button id="clear-button">Clear</button>
     </div>
 </body>
   <script src="etch-a-sketch.js"></script>
