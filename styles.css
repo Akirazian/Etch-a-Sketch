@@ -7,7 +7,7 @@
   flex-direction: column;
   height: 600px;
   width: 600px;
-  outline: 1px solid black;
+  outline: 1px solid #333333;
 
 }
 
@@ -19,7 +19,7 @@
 .row {
   flex: 1;
   background-color: white;
-  outline: 1px solid black;
+  outline: 1px solid #333333;
 }
 
 .gridOff {
