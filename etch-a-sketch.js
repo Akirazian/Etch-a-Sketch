@@ -70,7 +70,7 @@ container.addEventListener("click", () =>{
     }
 });
 
-let gridMode = true; //Toggle grid
+let gridMode = false; //Toggle grid
 function toggleGrid() {
   let grid = document.querySelectorAll(".row");
   if (gridMode === true) {

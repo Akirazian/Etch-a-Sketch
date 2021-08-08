@@ -4,26 +4,25 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>Etch A Sketch</h1>
+    <h1>Sketchpad</h1>
     <h4>Click to toggle drawing!</h3>
-    <div id="container"></div>
-    <br>
-    <div id="options">
-      <div class="slidecontainer">
-        <span id="size-value">16 x 16</span>
-        <br>
-        <input type="range" min="1" max="64" value="16" class="slider" id="slider">
-      </div>
-      Pen Color: <input type="color" value="#333333" id="pen-color">
-      <button id="rainbow-button">Rainbow</button>
-      <button id="eraser-button">Eraser</button>
-      <button id="clear-button">Clear</button>
-    </div>
-    <br>
-    <div id="extra-options">
-      Background Color: <input type="color" value="#FFFFFF" id="background-color">
-      <button id="toggle-grid">Toggle Grid</button>
-    </div>
+      <main>
+        <div class="options">
+          <div class="slide-container">
+            <span id="size-value">16 x 16</span>
+            <input type="range" min="1" max="64" value="16" class="slider" id="slider">
+          </div>
+          <div>Pen Color: <input type="color" value="#333333" id="pen-color"></div>
+          <button id="rainbow-button">Rainbow</button>
+          <button id="eraser-button">Eraser</button>
+          <button id="clear-button">Clear</button>
+          <div>Background Color: <input type="color" value="#FFFFFF" id="background-color"></div>
+            <button id="toggle-grid">Toggle Grid</button>
+          </div>
+        </div>
+        <div id="container"></div>
+      </main>
+    
 </body>
   <script src="etch-a-sketch.js"></script>
 </html>
