@@ -12,6 +12,17 @@ h4 {
   font-size: medium;
 }
 
+button {
+  color: #222222;
+  padding: 10px
+}
+
+.active {
+  background-color: #222222;
+  border: 1px solid #222222;
+  color: white;
+}
+
 main {
  display: flex;
  width: 850px;
@@ -29,7 +40,7 @@ main {
   display: flex;
   height: 500px;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 #container {

@@ -4,10 +4,12 @@ const slider = document.getElementById("slider");
 const rainbowButton = document.getElementById("rainbow-button");
 const eraserButton = document.getElementById("eraser-button");
 const clearButton = document.getElementById("clear-button");
+const colorButton = document.getElementById("color-button");
 const penColorInput = document.getElementById("pen-color");
 const penStatus = document.getElementById("pen-status");
 const backgroundColorInput = document.getElementById("background-color")
 const toggleGridButton = document.getElementById("toggle-grid");
+const buttons = document.querySelectorAll("button");
 
 let color = "#333333";
 
@@ -41,11 +43,26 @@ function createBox(size) {
   }
 }
 
-let eraserMode = false;
+let currentMode = "color";
+function changeActiveButton() {
+  buttons.forEach((button) => button.className = "");
+  switch(color) {
+    case penColorInput.value:
+      colorButton.classList.add("active");
+      break;
+    case "rainbow":
+      rainbowButton.classList.add("active");
+      break;
+    case backgroundColorInput.value:
+      eraserButton.classList.add("active");
+      break;
+  }
+}
 
 function draw() {
   eraserMode = false;
   color = penColorInput.value
+  changeActiveButton();
 }
 
 function changeBackground() { //change background
@@ -57,9 +74,11 @@ function changeBackground() { //change background
   if (eraserMode == true) color = backgroundColorInput.value; //if eraser was being used, change the eraser color so it matches new background
 }
 
+let eraserMode = false;
 function toggleEraser () { 
   eraserMode = true; 
   color = backgroundColorInput.value;
+  changeActiveButton();
 };
 
 let drawMode = true; //Toggle pen
@@ -89,11 +108,13 @@ function toggleGrid() {
 slider.addEventListener("change", () => createBox(slider.value));
 slider.addEventListener("input", () => {sizeValue.innerText = `${slider.value} x ${slider.value}`});
 rainbowButton.addEventListener("click", () => {
-eraserMode = false;
-color = "rainbow";
+  eraserMode = false;
+  color = "rainbow";
+  changeActiveButton();
 });
 eraserButton.addEventListener("click", toggleEraser);
 clearButton.addEventListener("click", () => createBox(slider.value));
+colorButton.addEventListener("click", draw);
 penColorInput.addEventListener("change", draw);
 penColorInput.addEventListener("mouseup", draw); //check for mouse up, just in case the user switches back to their chosen color, but doesn't change it!
 backgroundColorInput.addEventListener("input", changeBackground); 
