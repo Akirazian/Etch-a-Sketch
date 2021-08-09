@@ -5,6 +5,7 @@ const rainbowButton = document.getElementById("rainbow-button");
 const eraserButton = document.getElementById("eraser-button");
 const clearButton = document.getElementById("clear-button");
 const penColorInput = document.getElementById("pen-color");
+const penStatus = document.getElementById("pen-status");
 const backgroundColorInput = document.getElementById("background-color")
 const toggleGridButton = document.getElementById("toggle-grid");
 
@@ -62,11 +63,13 @@ function toggleEraser () {
 };
 
 let drawMode = true; //Toggle pen
-container.addEventListener("click", () =>{
+  container.addEventListener("click", () =>{
   if (drawMode === false) { 
     drawMode = true;
+    penStatus.innerHTML = "Pen: <strong>ON</strong>"
     } else {
     drawMode = false;
+    penStatus.innerHTML = "Pen: <strong>OFF</strong>"
     }
 });
 

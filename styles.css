@@ -1,13 +1,10 @@
  body {
   display: flex;
+  text-align: center;
   color: #222222;
   flex-direction: column;
   align-items: center;
   background-color: rgb(211, 230, 211);
-}
-
-h1 {
-  margin-bottom: 0px;
 }
 
 h4 {
@@ -17,7 +14,7 @@ h4 {
 
 main {
  display: flex;
- width: 800px;
+ width: 850px;
  align-items: center;
  justify-content: space-between
 }
