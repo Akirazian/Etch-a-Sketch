@@ -100,8 +100,7 @@ function toggleGrid() {
   } else {
     grid.forEach((row) => row.classList.remove("gridOff"));
   }
-  if (gridMode === false) gridMode = true;
-  else gridMode = false;
+  gridMode === false ? gridMode = true : gridMode = false;
 }
 
 //Event listeners
